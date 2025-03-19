@@ -1,0 +1,59 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+*.egg-info/
+.installed.txt
+*.pth
+
+# Environments
+*.env
+venv/
+env/
+ENV/
+.streamlit/
+
+# PyInstaller
+#  Usually these files are written to the dist directory.
+#  Often these files are created temporarily.
+pyinstaller.log
+pyinstaller.build/
+dist/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.sock
+
+# Environments (VS Code)
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+*.swp
+
+# Log files
+*.log
+
+# Temp files
+*.tmp
