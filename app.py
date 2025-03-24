@@ -118,7 +118,10 @@ def process_mcq(api_key, disciplines, systems, competencies, keywords, num_quest
             f"Systems: {', '.join(systems)}\n"
             f"Competencies: {', '.join(competencies)}\n"
             f"Keywords: {keywords}\n\n"
-            f"Format each question as a separate item, including the question, answer options (A, B, C, D, E), and the correct answer."
+            f"Format each question as a separate item, using 'Question #' instead of 'Item #'. "
+            f"Place each answer option (A, B, C, D, E) on a new line, without parentheses around the option letters. "
+            f"For example: A. Option text. "
+            f"Include the question, answer options, and the Correct Answer."
         )
 
         questions = mcq_system.call_ai_model(
@@ -133,6 +136,11 @@ def process_mcq(api_key, disciplines, systems, competencies, keywords, num_quest
         return [{"error": str(e)}]
 
 def main():
+    st.title("PrepX🐢")
+    disciplines = st.multiselect("Disciplines", DISCIPLINE_OPTIONS)
+    systems = st.multiselect("Systems", SYSTEM_OPTIONS)
+    competencies = st.multiselect("Competencies", COMPETENCY_OPTIONS)
+    keywords = st.text_input("Keywords")
     num_questions = st.number_input("Number of Questions", min_value=1, value=5)
 
     if st.button("Generate MCQs"):
@@ -145,14 +153,12 @@ def main():
 
                 st.subheader("Generated MCQs")
                 for question in questions:
-                    st.write(question)
+                    lines = question.split("\n")
+                    for line in lines:
+                        line = line.replace("(A)", "A.").replace("(B)", "B.").replace("(C)", "C.").replace("(D)", "D.").replace("(E)", "E.")
+                        st.write(line)
             else:
                 st.error("Error generating MCQs. Please check the logs.")
 
 if __name__ == "__main__":
-    st.title("PrepX🐢")
-    disciplines = st.multiselect("Disciplines", DISCIPLINE_OPTIONS)
-    systems = st.multiselect("Systems", SYSTEM_OPTIONS)
-    competencies = st.multiselect("Competencies", COMPETENCY_OPTIONS)
-    keywords = st.text_input("Keywords")
     main()
