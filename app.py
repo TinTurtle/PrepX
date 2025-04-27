@@ -130,7 +130,7 @@ def process_mcq(api_key, disciplines, systems, competencies, keywords, num_quest
         )
         mcq_system.add_to_history("MCQ Questions", questions, 1)
 
-        return mcq_system.history
+        return mcq_system.history 
     except Exception as e:
         print(f"Error in process_mcq: {str(e)}")
         return [{"error": str(e)}]
