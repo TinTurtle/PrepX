@@ -57,11 +57,6 @@ PrepX is a Streamlit application that leverages the Google Gemini API to generat
 5.  **Enter Number of Questions:** Enter the number of questions you would like to generate.
 6.  **Click "Generate MCQs":** The application will generate the specified number of MCQs and display them on the page.
 
-## `.gitignore`
-
-The repository includes a `.gitignore` file to ignore sensitive files like `.env` and virtual environment directories.
-
-## Contributing
 
 Feel free to contribute to this project by submitting pull requests or opening issues.
 
